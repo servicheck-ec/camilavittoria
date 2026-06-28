@@ -9,7 +9,7 @@
     <meta property="og:description" content="Brazilian soul · Italian heart · German elegance">
     <meta property="og:type" content="website">
     <meta property="og:url" content="https://camilamoretti.pages.dev">
-    <meta property="og:image" content="https://res.cloudinary.com/dkeo0txlk/image/upload/f_auto,q_auto,w_1200/v1782656798/Sin_t%C3%ADtulo_fq28fn.jpg">
+    <meta property="og:image" content="https://camilamoretti.pages.dev/images/hero.jpg">
     <meta name="twitter:card" content="summary_large_image">
     <meta name="theme-color" content="#060606">
     <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'%3E%3Ctext y='.9em' font-size='90' font-family='serif' font-style='italic' fill='%23d946ef'%3EM%3C/text%3E%3C/svg%3E">
@@ -50,7 +50,7 @@
         .hero { height: 100vh; position: relative; overflow: hidden; display: flex; align-items: flex-end; }
         .hero-bg { position: absolute; inset: 0; display: grid; grid-template-columns: 1.2fr 0.8fr; }
         .hero-img { overflow: hidden; }
-        .hero-img img { width: 100%; height: 100%; object-fit: cover; object-position: center top; animation: slowZoom 20s ease-in-out infinite alternate; }
+        .hero-img img { width: 100%; height: 100%; object-fit: cover; object-position: center 20%; animation: slowZoom 20s ease-in-out infinite alternate; }
         @keyframes slowZoom { from { transform: scale(1.05); } to { transform: scale(1.0); } }
         .hero-overlay { position: absolute; inset: 0; background: linear-gradient(0deg, rgba(6,6,6,1) 0%, rgba(6,6,6,0.5) 40%, rgba(6,6,6,0.2) 70%, transparent 100%), linear-gradient(90deg, rgba(6,6,6,0.3) 0%, transparent 50%); }
         .hero-content { position: relative; z-index: 10; width: 100%; padding: 0 3rem 5rem; }
@@ -106,13 +106,11 @@
         .g:hover img { transform: scale(1.06); }
         .g::after { content: ''; position: absolute; inset: 0; background: linear-gradient(to top, rgba(6,6,6,0.5), transparent); opacity: 0; transition: opacity 0.4s; }
         .g:hover::after { opacity: 1; }
-        .g1 { grid-column: span 5; grid-row: span 6; }
-        .g2 { grid-column: span 4; grid-row: span 4; }
+        .g1 { grid-column: span 5; grid-row: span 7; }
+        .g2 { grid-column: span 4; grid-row: span 7; }
         .g3 { grid-column: span 3; grid-row: span 4; }
-        .g4 { grid-column: span 4; grid-row: span 5; }
-        .g5 { grid-column: span 3; grid-row: span 5; }
-        .g6 { grid-column: span 5; grid-row: span 5; }
-        .g7 { grid-column: span 4; grid-row: span 4; }
+        .g4 { grid-column: span 7; grid-row: span 5; }
+        .g5 { grid-column: span 5; grid-row: span 5; }
 
         /* LOCKED CONTENT */
         .locked { padding: 6rem 3rem; max-width: 1400px; margin: 0 auto; }
@@ -184,10 +182,10 @@
             .gallery { padding: 4rem 1.5rem; }
             .gallery-grid { grid-template-columns: repeat(6, 1fr); }
             .g1 { grid-column: span 6; grid-row: span 5; }
-            .g2, .g3 { grid-column: span 3; grid-row: span 4; }
-            .g4, .g5 { grid-column: span 3; grid-row: span 4; }
-            .g6 { grid-column: span 4; grid-row: span 4; }
-            .g7 { grid-column: span 2; grid-row: span 4; }
+            .g2 { grid-column: span 3; grid-row: span 4; }
+            .g3 { grid-column: span 3; grid-row: span 4; }
+            .g4 { grid-column: span 4; grid-row: span 5; }
+            .g5 { grid-column: span 2; grid-row: span 5; }
             .locked-grid { grid-template-columns: repeat(2, 1fr); }
             .platform-grid { grid-template-columns: 1fr 1fr; }
             .platforms { padding: 5rem 1.5rem; }
@@ -224,10 +222,10 @@
 <section class="hero">
     <div class="hero-bg">
         <div class="hero-img">
-            <img src="https://res.cloudinary.com/dkeo0txlk/image/upload/f_auto,q_auto/v1782656798/Sin_t%C3%ADtulo_fq28fn.jpg" alt="Camila Moretti">
+            <img src="images/hero.jpg" alt="Camila Moretti">
         </div>
         <div class="hero-img">
-            <img src="https://res.cloudinary.com/dkeo0txlk/image/upload/f_auto,q_auto/v1782656799/WhatsApp_Image_2026-06-28_at_8.31.54_AM_crwkfk.jpg" alt="Camila Moretti">
+            <img src="images/olive.jpg" alt="Camila Moretti">
         </div>
     </div>
     <div class="hero-overlay"></div>
@@ -279,13 +277,13 @@
 <section class="about" id="about">
     <div class="about-imgs">
         <div class="a-img big">
-            <img src="https://res.cloudinary.com/dkeo0txlk/image/upload/f_auto,q_auto/v1782656798/Sin_t%C3%ADtulo.jpg3_whbmuh.jpg" alt="Camila Moretti">
+            <img src="images/eyes.jpg" alt="Camila Moretti">
         </div>
         <div class="a-img">
-            <img src="https://res.cloudinary.com/dkeo0txlk/image/upload/f_auto,q_auto/v1782656799/WhatsApp_Image_2026-06-28_at_8.30.14_AM_zj1knm.jpg" alt="Camila Moretti">
+            <img src="images/floral.jpg" alt="Camila Moretti">
         </div>
         <div class="a-img">
-            <img src="https://res.cloudinary.com/dkeo0txlk/image/upload/f_auto,q_auto/v1782656798/Sin_t%C3%ADtulo.jpg6_tmcrxx.jpg" alt="Camila Moretti">
+            <img src="images/olive.jpg" alt="Camila Moretti">
         </div>
     </div>
     <div class="about-text">
@@ -311,13 +309,11 @@
         <p>Selected Works</p>
     </div>
     <div class="gallery-grid">
-        <div class="g g1"><img src="https://res.cloudinary.com/dkeo0txlk/image/upload/f_auto,q_auto/v1782656798/Sin_4_vnsbhm.jpg" alt="Camila"></div>
-        <div class="g g2"><img src="https://res.cloudinary.com/dkeo0txlk/image/upload/f_auto,q_auto/v1782656799/WhatsApp_Image_2026-06-28_at_8.36.09_AM_e98qcy.jpg" alt="Camila"></div>
-        <div class="g g3"><img src="https://res.cloudinary.com/dkeo0txlk/image/upload/f_auto,q_auto/v1782656798/Sin_t%C3%ADtulo2_khvh8t.jpg" alt="Camila"></div>
-        <div class="g g4"><img src="https://res.cloudinary.com/dkeo0txlk/image/upload/f_auto,q_auto/v1782656799/WhatsApp_Image_2026-06-28_at_8.37.40_AM_zkbh4x.jpg" alt="Camila"></div>
-        <div class="g g5"><img src="https://res.cloudinary.com/dkeo0txlk/image/upload/f_auto,q_auto/v1782656799/WhatsApp_Image_2026-06-28_at_8.31.54_AM_crwkfk.jpg" alt="Camila"></div>
-        <div class="g g6"><img src="https://res.cloudinary.com/dkeo0txlk/image/upload/f_auto,q_auto/v1782656798/Sin_t%C3%ADtulo.jpg4_c0ytwg.jpg" alt="Camila"></div>
-        <div class="g g7"><img src="https://res.cloudinary.com/dkeo0txlk/image/upload/f_auto,q_auto/v1782656799/WhatsApp_Image_2026-06-28_at_8.30.14_AM_zj1knm.jpg" alt="Camila"></div>
+        <div class="g g1"><img src="images/lingerie.jpg" alt="Camila"></div>
+        <div class="g g2"><img src="images/olive.jpg" alt="Camila"></div>
+        <div class="g g3"><img src="images/floral.jpg" alt="Camila"></div>
+        <div class="g g4"><img src="images/hero.jpg" alt="Camila"></div>
+        <div class="g g5"><img src="images/eyes.jpg" alt="Camila"></div>
     </div>
 </section>
 
@@ -328,7 +324,7 @@
     <p class="locked-sub">A private collection — unlocked by subscription</p>
     <div class="locked-grid">
         <div class="locked-item">
-            <img src="https://res.cloudinary.com/dkeo0txlk/image/upload/f_auto,q_auto/v1782656798/Sin_4_vnsbhm.jpg" alt="">
+            <img src="images/lingerie.jpg" alt="">
             <div class="locked-overlay">
                 <div class="lock-icon">◊</div>
                 <div class="lock-text">Editorial Set</div>
@@ -336,7 +332,7 @@
             </div>
         </div>
         <div class="locked-item">
-            <img src="https://res.cloudinary.com/dkeo0txlk/image/upload/f_auto,q_auto/v1782656799/WhatsApp_Image_2026-06-28_at_8.36.09_AM_e98qcy.jpg" alt="">
+            <img src="images/floral.jpg" alt="">
             <div class="locked-overlay">
                 <div class="lock-icon">◊</div>
                 <div class="lock-text">Private Film</div>
@@ -344,7 +340,7 @@
             </div>
         </div>
         <div class="locked-item">
-            <img src="https://res.cloudinary.com/dkeo0txlk/image/upload/f_auto,q_auto/v1782656798/Sin_t%C3%ADtulo2_khvh8t.jpg" alt="">
+            <img src="images/olive.jpg" alt="">
             <div class="locked-overlay">
                 <div class="lock-icon">◊</div>
                 <div class="lock-text">Behind the Scenes</div>
@@ -352,7 +348,7 @@
             </div>
         </div>
         <div class="locked-item">
-            <img src="https://res.cloudinary.com/dkeo0txlk/image/upload/f_auto,q_auto/v1782656799/WhatsApp_Image_2026-06-28_at_8.37.40_AM_zkbh4x.jpg" alt="">
+            <img src="images/eyes.jpg" alt="">
             <div class="locked-overlay">
                 <div class="lock-icon">◊</div>
                 <div class="lock-text">Personal Note</div>
