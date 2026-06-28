@@ -5,15 +5,12 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Camila Moretti - Premium Content Creator</title>
     <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,500;0,600;0,700;1,400;1,600&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
     <style>
         * { margin: 0; padding: 0; box-sizing: border-box; }
-
         :root {
             --dark: #080808;
             --dark2: #111111;
-            --dark3: #1a1a1a;
             --magenta: #c026d3;
             --magenta-light: #e879f9;
             --rose: #f5a9b3;
@@ -21,440 +18,82 @@
             --white: #fafafa;
             --gray: #333;
         }
-
         html { scroll-behavior: smooth; }
+        body { background: var(--dark); color: var(--white); font-family: 'Cormorant Garamond', serif; overflow-x: hidden; }
 
-        body {
-            background: var(--dark);
-            color: var(--white);
-            font-family: 'Cormorant Garamond', serif;
-            overflow-x: hidden;
-        }
-
-        /* HEADER */
         header {
-            position: fixed;
-            top: 0;
-            width: 100%;
+            position: fixed; top: 0; width: 100%;
             padding: 1.5rem 4rem;
             background: linear-gradient(180deg, rgba(8,8,8,0.98) 0%, rgba(8,8,8,0.8) 100%);
             backdrop-filter: blur(10px);
             z-index: 1000;
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-            border-bottom: 1px solid rgba(192, 38, 211, 0.1);
+            display: flex; justify-content: space-between; align-items: center;
+            border-bottom: 1px solid rgba(192,38,211,0.1);
         }
-
         .logo {
-            font-size: 1.4rem;
-            font-weight: 600;
-            letter-spacing: 4px;
-            text-transform: uppercase;
+            font-size: 1.4rem; font-weight: 600; letter-spacing: 4px; text-transform: uppercase;
             background: linear-gradient(135deg, var(--magenta-light), var(--rose), var(--gold));
-            -webkit-background-clip: text;
-            -webkit-text-fill-color: transparent;
-            background-clip: text;
+            -webkit-background-clip: text; -webkit-text-fill-color: transparent; background-clip: text;
         }
-
-        nav a {
-            color: rgba(250,250,250,0.7);
-            text-decoration: none;
-            margin: 0 1.5rem;
-            font-size: 0.85rem;
-            letter-spacing: 2px;
-            text-transform: uppercase;
-            transition: color 0.3s;
-            font-family: 'JetBrains Mono', monospace;
-        }
-
+        nav a { color: rgba(250,250,250,0.7); text-decoration: none; margin: 0 1.5rem; font-size: 0.85rem; letter-spacing: 2px; text-transform: uppercase; transition: color 0.3s; font-family: 'JetBrains Mono', monospace; }
         nav a:hover { color: var(--magenta-light); }
 
-        /* HERO */
-        .hero {
-            min-height: 100vh;
-            display: grid;
-            grid-template-columns: 1fr 1fr;
-            align-items: center;
-            position: relative;
-            overflow: hidden;
-        }
+        .hero { min-height: 100vh; display: grid; grid-template-columns: 1fr 1fr; align-items: center; position: relative; overflow: hidden; }
+        .hero::before { content: ''; position: absolute; inset: 0; background: radial-gradient(ellipse at 30% 50%, rgba(192,38,211,0.08) 0%, transparent 60%); }
+        .hero-text { padding: 8rem 4rem 4rem 6rem; position: relative; z-index: 2; }
+        .hero-eyebrow { font-family: 'JetBrains Mono', monospace; font-size: 0.75rem; letter-spacing: 4px; color: var(--magenta-light); text-transform: uppercase; margin-bottom: 1.5rem; animation: fadeUp 0.8s ease forwards 0.2s; opacity: 0; }
+        .hero h1 { font-size: 5.5rem; font-weight: 700; line-height: 1.0; letter-spacing: -2px; margin-bottom: 1.5rem; animation: fadeUp 0.8s ease forwards 0.4s; opacity: 0; }
+        .hero h1 span { display: block; background: linear-gradient(135deg, var(--white) 0%, var(--rose) 50%, var(--gold) 100%); -webkit-background-clip: text; -webkit-text-fill-color: transparent; background-clip: text; }
+        .hero-sub { font-size: 1.2rem; color: rgba(250,250,250,0.6); margin-bottom: 3rem; font-style: italic; letter-spacing: 1px; animation: fadeUp 0.8s ease forwards 0.6s; opacity: 0; }
+        .hero-cta { display: inline-flex; align-items: center; gap: 1rem; padding: 1rem 2.5rem; background: linear-gradient(135deg, var(--magenta), var(--magenta-light)); color: white; text-decoration: none; font-family: 'JetBrains Mono', monospace; font-size: 0.8rem; letter-spacing: 2px; text-transform: uppercase; border-radius: 2px; transition: all 0.3s; animation: fadeUp 0.8s ease forwards 0.8s; opacity: 0; }
+        .hero-cta:hover { transform: translateY(-2px); box-shadow: 0 20px 50px rgba(192,38,211,0.3); }
+        .hero-image { height: 100vh; position: relative; overflow: hidden; }
+        .hero-image img { width: 100%; height: 100%; object-fit: cover; object-position: center top; filter: brightness(0.85); }
+        .hero-image::after { content: ''; position: absolute; inset: 0; background: linear-gradient(90deg, var(--dark) 0%, transparent 30%, transparent 70%, var(--dark) 100%), linear-gradient(0deg, var(--dark) 0%, transparent 20%); }
+        @keyframes fadeUp { from { opacity: 0; transform: translateY(20px); } to { opacity: 1; transform: translateY(0); } }
 
-        .hero::before {
-            content: '';
-            position: absolute;
-            inset: 0;
-            background: radial-gradient(ellipse at 30% 50%, rgba(192,38,211,0.08) 0%, transparent 60%);
-        }
+        .divider { display: flex; align-items: center; gap: 2rem; padding: 4rem 6rem; border-top: 1px solid var(--gray); border-bottom: 1px solid var(--gray); }
+        .divider-item { flex: 1; text-align: center; }
+        .divider-item .num { font-size: 2.5rem; font-weight: 700; background: linear-gradient(135deg, var(--magenta-light), var(--rose)); -webkit-background-clip: text; -webkit-text-fill-color: transparent; background-clip: text; }
+        .divider-item .label { font-family: 'JetBrains Mono', monospace; font-size: 0.7rem; letter-spacing: 3px; color: rgba(250,250,250,0.5); text-transform: uppercase; margin-top: 0.3rem; }
+        .divider-sep { width: 1px; height: 50px; background: var(--gray); }
 
-        .hero-text {
-            padding: 8rem 4rem 4rem 6rem;
-            position: relative;
-            z-index: 2;
-        }
+        .about { padding: 8rem 6rem; display: grid; grid-template-columns: 1fr 1.2fr; gap: 6rem; align-items: center; }
+        .about-label { font-family: 'JetBrains Mono', monospace; font-size: 0.7rem; letter-spacing: 4px; color: var(--magenta-light); text-transform: uppercase; margin-bottom: 1.5rem; }
+        .about h2 { font-size: 3.5rem; font-weight: 600; line-height: 1.1; margin-bottom: 2rem; letter-spacing: -1px; }
+        .about p { font-size: 1.15rem; color: rgba(250,250,250,0.7); line-height: 2; margin-bottom: 1.5rem; }
+        .about-images { display: grid; grid-template-columns: 1fr 1fr; gap: 1rem; }
+        .about-img-main { grid-column: 1 / -1; aspect-ratio: 4/3; border-radius: 4px; overflow: hidden; }
+        .about-img-side { aspect-ratio: 3/4; border-radius: 4px; overflow: hidden; }
+        .about-img-main img, .about-img-side img { width: 100%; height: 100%; object-fit: cover; transition: transform 0.6s ease; }
+        .about-img-main:hover img, .about-img-side:hover img { transform: scale(1.03); }
 
-        .hero-eyebrow {
-            font-family: 'JetBrains Mono', monospace;
-            font-size: 0.75rem;
-            letter-spacing: 4px;
-            color: var(--magenta-light);
-            text-transform: uppercase;
-            margin-bottom: 1.5rem;
-            opacity: 0;
-            animation: fadeUp 0.8s ease forwards 0.2s;
-        }
-
-        .hero h1 {
-            font-size: 5.5rem;
-            font-weight: 700;
-            line-height: 1.0;
-            letter-spacing: -2px;
-            margin-bottom: 1.5rem;
-            opacity: 0;
-            animation: fadeUp 0.8s ease forwards 0.4s;
-        }
-
-        .hero h1 span {
-            display: block;
-            background: linear-gradient(135deg, var(--white) 0%, var(--rose) 50%, var(--gold) 100%);
-            -webkit-background-clip: text;
-            -webkit-text-fill-color: transparent;
-            background-clip: text;
-        }
-
-        .hero-sub {
-            font-size: 1.2rem;
-            color: rgba(250,250,250,0.6);
-            margin-bottom: 3rem;
-            font-style: italic;
-            letter-spacing: 1px;
-            opacity: 0;
-            animation: fadeUp 0.8s ease forwards 0.6s;
-        }
-
-        .hero-cta {
-            display: inline-flex;
-            align-items: center;
-            gap: 1rem;
-            padding: 1rem 2.5rem;
-            background: linear-gradient(135deg, var(--magenta), var(--magenta-light));
-            color: white;
-            text-decoration: none;
-            font-family: 'JetBrains Mono', monospace;
-            font-size: 0.8rem;
-            letter-spacing: 2px;
-            text-transform: uppercase;
-            border-radius: 2px;
-            transition: all 0.3s;
-            opacity: 0;
-            animation: fadeUp 0.8s ease forwards 0.8s;
-        }
-
-        .hero-cta:hover {
-            transform: translateY(-2px);
-            box-shadow: 0 20px 50px rgba(192,38,211,0.3);
-        }
-
-        .hero-image {
-            height: 100vh;
-            position: relative;
-            overflow: hidden;
-        }
-
-        .hero-image img {
-            width: 100%;
-            height: 100%;
-            object-fit: cover;
-            object-position: center top;
-            filter: brightness(0.85);
-        }
-
-        .hero-image::after {
-            content: '';
-            position: absolute;
-            inset: 0;
-            background: linear-gradient(90deg, var(--dark) 0%, transparent 30%, transparent 70%, var(--dark) 100%),
-                        linear-gradient(0deg, var(--dark) 0%, transparent 20%);
-        }
-
-        @keyframes fadeUp {
-            from { opacity: 0; transform: translateY(20px); }
-            to { opacity: 1; transform: translateY(0); }
-        }
-
-        /* DIVIDER */
-        .divider {
-            display: flex;
-            align-items: center;
-            gap: 2rem;
-            padding: 4rem 6rem;
-            border-top: 1px solid var(--gray);
-            border-bottom: 1px solid var(--gray);
-        }
-
-        .divider-item {
-            flex: 1;
-            text-align: center;
-        }
-
-        .divider-item .num {
-            font-size: 2.5rem;
-            font-weight: 700;
-            background: linear-gradient(135deg, var(--magenta-light), var(--rose));
-            -webkit-background-clip: text;
-            -webkit-text-fill-color: transparent;
-            background-clip: text;
-        }
-
-        .divider-item .label {
-            font-family: 'JetBrains Mono', monospace;
-            font-size: 0.7rem;
-            letter-spacing: 3px;
-            color: rgba(250,250,250,0.5);
-            text-transform: uppercase;
-            margin-top: 0.3rem;
-        }
-
-        .divider-sep {
-            width: 1px;
-            height: 50px;
-            background: var(--gray);
-        }
-
-        /* ABOUT */
-        .about {
-            padding: 8rem 6rem;
-            display: grid;
-            grid-template-columns: 1fr 1.2fr;
-            gap: 6rem;
-            align-items: center;
-        }
-
-        .about-label {
-            font-family: 'JetBrains Mono', monospace;
-            font-size: 0.7rem;
-            letter-spacing: 4px;
-            color: var(--magenta-light);
-            text-transform: uppercase;
-            margin-bottom: 1.5rem;
-        }
-
-        .about h2 {
-            font-size: 3.5rem;
-            font-weight: 600;
-            line-height: 1.1;
-            margin-bottom: 2rem;
-            letter-spacing: -1px;
-        }
-
-        .about p {
-            font-size: 1.15rem;
-            color: rgba(250,250,250,0.7);
-            line-height: 2;
-            margin-bottom: 1.5rem;
-        }
-
-        .about-images {
-            display: grid;
-            grid-template-columns: 1fr 1fr;
-            grid-template-rows: auto auto;
-            gap: 1rem;
-        }
-
-        .about-img-main {
-            grid-column: 1 / -1;
-            aspect-ratio: 16/9;
-            border-radius: 4px;
-            overflow: hidden;
-        }
-
-        .about-img-side {
-            aspect-ratio: 3/4;
-            border-radius: 4px;
-            overflow: hidden;
-        }
-
-        .about-img-main img,
-        .about-img-side img {
-            width: 100%;
-            height: 100%;
-            object-fit: cover;
-            transition: transform 0.6s ease;
-        }
-
-        .about-img-main:hover img,
-        .about-img-side:hover img {
-            transform: scale(1.03);
-        }
-
-        /* GALLERY */
-        .gallery {
-            padding: 6rem;
-            background: var(--dark2);
-        }
-
-        .gallery-header {
-            display: flex;
-            justify-content: space-between;
-            align-items: flex-end;
-            margin-bottom: 4rem;
-        }
-
-        .gallery-header h2 {
-            font-size: 3rem;
-            font-weight: 600;
-            letter-spacing: -1px;
-        }
-
-        .gallery-header p {
-            font-family: 'JetBrains Mono', monospace;
-            font-size: 0.7rem;
-            letter-spacing: 3px;
-            color: rgba(250,250,250,0.4);
-            text-transform: uppercase;
-        }
-
-        .gallery-grid {
-            display: grid;
-            grid-template-columns: repeat(4, 1fr);
-            grid-auto-rows: 280px;
-            gap: 1rem;
-        }
-
-        .gallery-item {
-            overflow: hidden;
-            border-radius: 3px;
-            cursor: pointer;
-            position: relative;
-        }
-
+        .gallery { padding: 6rem; background: var(--dark2); }
+        .gallery-header { display: flex; justify-content: space-between; align-items: flex-end; margin-bottom: 4rem; }
+        .gallery-header h2 { font-size: 3rem; font-weight: 600; letter-spacing: -1px; }
+        .gallery-header p { font-family: 'JetBrains Mono', monospace; font-size: 0.7rem; letter-spacing: 3px; color: rgba(250,250,250,0.4); text-transform: uppercase; }
+        .gallery-grid { display: grid; grid-template-columns: repeat(4, 1fr); grid-auto-rows: 280px; gap: 1rem; }
+        .gallery-item { overflow: hidden; border-radius: 3px; cursor: pointer; position: relative; }
         .gallery-item.tall { grid-row: span 2; }
         .gallery-item.wide { grid-column: span 2; }
-
-        .gallery-item img {
-            width: 100%;
-            height: 100%;
-            object-fit: cover;
-            transition: transform 0.6s ease;
-        }
-
+        .gallery-item img { width: 100%; height: 100%; object-fit: cover; transition: transform 0.6s ease; }
         .gallery-item:hover img { transform: scale(1.05); }
-
-        .gallery-item::after {
-            content: '';
-            position: absolute;
-            inset: 0;
-            background: linear-gradient(135deg, rgba(192,38,211,0.2), transparent);
-            opacity: 0;
-            transition: opacity 0.3s;
-        }
-
+        .gallery-item::after { content: ''; position: absolute; inset: 0; background: linear-gradient(135deg, rgba(192,38,211,0.2), transparent); opacity: 0; transition: opacity 0.3s; }
         .gallery-item:hover::after { opacity: 1; }
 
-        /* CONTACT */
-        .contact {
-            padding: 8rem 6rem;
-            text-align: center;
-            position: relative;
-            overflow: hidden;
-        }
+        .contact { padding: 8rem 6rem; text-align: center; position: relative; overflow: hidden; }
+        .contact::before { content: ''; position: absolute; inset: 0; background: radial-gradient(ellipse at center, rgba(192,38,211,0.06) 0%, transparent 70%); }
+        .contact-label { font-family: 'JetBrains Mono', monospace; font-size: 0.7rem; letter-spacing: 4px; color: var(--magenta-light); text-transform: uppercase; margin-bottom: 1.5rem; }
+        .contact h2 { font-size: 4rem; font-weight: 600; margin-bottom: 1.5rem; letter-spacing: -1px; }
+        .contact p { font-size: 1.2rem; color: rgba(250,250,250,0.6); font-style: italic; margin-bottom: 4rem; max-width: 500px; margin-left: auto; margin-right: auto; }
+        .contact-buttons { display: flex; gap: 1.5rem; justify-content: center; }
+        .btn-wa { display: inline-flex; align-items: center; gap: 0.8rem; padding: 1.2rem 3rem; background: #25D366; color: white; text-decoration: none; font-family: 'JetBrains Mono', monospace; font-size: 0.8rem; letter-spacing: 2px; text-transform: uppercase; border-radius: 2px; transition: all 0.3s; }
+        .btn-wa:hover { transform: translateY(-3px); box-shadow: 0 20px 50px rgba(37,211,102,0.25); }
+        .btn-email { display: inline-flex; align-items: center; gap: 0.8rem; padding: 1.2rem 3rem; background: transparent; color: var(--magenta-light); border: 1px solid var(--magenta); text-decoration: none; font-family: 'JetBrains Mono', monospace; font-size: 0.8rem; letter-spacing: 2px; text-transform: uppercase; border-radius: 2px; transition: all 0.3s; }
+        .btn-email:hover { background: var(--magenta); color: white; transform: translateY(-3px); }
 
-        .contact::before {
-            content: '';
-            position: absolute;
-            inset: 0;
-            background: radial-gradient(ellipse at center, rgba(192,38,211,0.06) 0%, transparent 70%);
-        }
+        footer { padding: 2rem 6rem; border-top: 1px solid var(--gray); display: flex; justify-content: space-between; align-items: center; font-size: 0.8rem; color: rgba(250,250,250,0.3); font-family: 'JetBrains Mono', monospace; }
 
-        .contact-label {
-            font-family: 'JetBrains Mono', monospace;
-            font-size: 0.7rem;
-            letter-spacing: 4px;
-            color: var(--magenta-light);
-            text-transform: uppercase;
-            margin-bottom: 1.5rem;
-        }
-
-        .contact h2 {
-            font-size: 4rem;
-            font-weight: 600;
-            margin-bottom: 1.5rem;
-            letter-spacing: -1px;
-        }
-
-        .contact p {
-            font-size: 1.2rem;
-            color: rgba(250,250,250,0.6);
-            font-style: italic;
-            margin-bottom: 4rem;
-            max-width: 500px;
-            margin-left: auto;
-            margin-right: auto;
-        }
-
-        .contact-buttons {
-            display: flex;
-            gap: 1.5rem;
-            justify-content: center;
-        }
-
-        .btn-wa {
-            display: inline-flex;
-            align-items: center;
-            gap: 0.8rem;
-            padding: 1.2rem 3rem;
-            background: #25D366;
-            color: white;
-            text-decoration: none;
-            font-family: 'JetBrains Mono', monospace;
-            font-size: 0.8rem;
-            letter-spacing: 2px;
-            text-transform: uppercase;
-            border-radius: 2px;
-            transition: all 0.3s;
-        }
-
-        .btn-wa:hover {
-            transform: translateY(-3px);
-            box-shadow: 0 20px 50px rgba(37,211,102,0.25);
-        }
-
-        .btn-email {
-            display: inline-flex;
-            align-items: center;
-            gap: 0.8rem;
-            padding: 1.2rem 3rem;
-            background: transparent;
-            color: var(--magenta-light);
-            border: 1px solid var(--magenta);
-            text-decoration: none;
-            font-family: 'JetBrains Mono', monospace;
-            font-size: 0.8rem;
-            letter-spacing: 2px;
-            text-transform: uppercase;
-            border-radius: 2px;
-            transition: all 0.3s;
-        }
-
-        .btn-email:hover {
-            background: var(--magenta);
-            color: white;
-            transform: translateY(-3px);
-        }
-
-        /* FOOTER */
-        footer {
-            padding: 2rem 6rem;
-            border-top: 1px solid var(--gray);
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-            font-size: 0.8rem;
-            color: rgba(250,250,250,0.3);
-            font-family: 'JetBrains Mono', monospace;
-        }
-
-        /* RESPONSIVE */
         @media (max-width: 1024px) {
             .hero { grid-template-columns: 1fr; }
             .hero-image { height: 60vh; }
@@ -473,7 +112,6 @@
 </head>
 <body>
 
-<!-- HEADER -->
 <header>
     <div class="logo">Camila Moretti</div>
     <nav>
@@ -483,7 +121,6 @@
     </nav>
 </header>
 
-<!-- HERO -->
 <section class="hero">
     <div class="hero-text">
         <p class="hero-eyebrow">Premium Content Creator</p>
@@ -492,34 +129,20 @@
         <a href="#contact" class="hero-cta">Connect with me →</a>
     </div>
     <div class="hero-image">
-        <img src="https://raw.githubusercontent.com/servicheck-ec/camilavittoria/main/images/foto8.jpg" alt="Camila Moretti">
+        <img src="https://res.cloudinary.com/dkeo0txlk/image/upload/f_auto,q_auto/v1782656798/Sin_t%C3%ADtulo_fq28fn.jpg" alt="Camila Moretti">
     </div>
 </section>
 
-<!-- DIVIDER STATS -->
 <div class="divider">
-    <div class="divider-item">
-        <div class="num">100%</div>
-        <div class="label">Exclusive Content</div>
-    </div>
+    <div class="divider-item"><div class="num">100%</div><div class="label">Exclusive Content</div></div>
     <div class="divider-sep"></div>
-    <div class="divider-item">
-        <div class="num">Premium</div>
-        <div class="label">Quality</div>
-    </div>
+    <div class="divider-item"><div class="num">Premium</div><div class="label">Quality</div></div>
     <div class="divider-sep"></div>
-    <div class="divider-item">
-        <div class="num">Private</div>
-        <div class="label">& Exclusive</div>
-    </div>
+    <div class="divider-item"><div class="num">Private</div><div class="label">& Exclusive</div></div>
     <div class="divider-sep"></div>
-    <div class="divider-item">
-        <div class="num">Direct</div>
-        <div class="label">Connection</div>
-    </div>
+    <div class="divider-item"><div class="num">Direct</div><div class="label">Connection</div></div>
 </div>
 
-<!-- ABOUT -->
 <section class="about" id="about">
     <div class="about-text">
         <p class="about-label">About Me</p>
@@ -529,96 +152,50 @@
         <p>Welcome to my world.</p>
     </div>
     <div class="about-images">
-        <div class="about-img-main">
-            <img src="https://raw.githubusercontent.com/servicheck-ec/camilavittoria/main/images/foto3.jpg" alt="Camila Moretti">
-        </div>
-        <div class="about-img-side">
-            <img src="https://raw.githubusercontent.com/servicheck-ec/camilavittoria/main/images/foto2.jpg" alt="Camila Moretti">
-        </div>
-        <div class="about-img-side">
-            <img src="https://raw.githubusercontent.com/servicheck-ec/camilavittoria/main/images/foto1.jpg" alt="Camila Moretti">
-        </div>
+        <div class="about-img-main"><img src="https://res.cloudinary.com/dkeo0txlk/image/upload/f_auto,q_auto/v1782656798/Sin_t%C3%ADtulo.jpg3_whbmuh.jpg" alt="Camila Moretti"></div>
+        <div class="about-img-side"><img src="https://res.cloudinary.com/dkeo0txlk/image/upload/f_auto,q_auto/v1782656798/Sin_4_vnsbhm.jpg" alt="Camila Moretti"></div>
+        <div class="about-img-side"><img src="https://res.cloudinary.com/dkeo0txlk/image/upload/f_auto,q_auto/v1782656798/Sin_t%C3%ADtulo.jpg6_tmcrxx.jpg" alt="Camila Moretti"></div>
     </div>
 </section>
 
-<!-- GALLERY -->
 <section class="gallery" id="gallery">
     <div class="gallery-header">
         <h2>Gallery</h2>
         <p>Selected works</p>
     </div>
     <div class="gallery-grid">
-        <div class="gallery-item tall">
-            <img src="https://raw.githubusercontent.com/servicheck-ec/camilavittoria/main/images/foto2.jpg_jpg4" alt="Camila Moretti">
-        </div>
-        <div class="gallery-item">
-            <img src="https://raw.githubusercontent.com/servicheck-ec/camilavittoria/main/images/foto2.jpg_jpg6" alt="Camila Moretti">
-        </div>
-        <div class="gallery-item">
-            <img src="https://raw.githubusercontent.com/servicheck-ec/camilavittoria/main/images/foto2.jpg2" alt="Camila Moretti">
-        </div>
-        <div class="gallery-item tall">
-            <img src="https://raw.githubusercontent.com/servicheck-ec/camilavittoria/main/images/foto7.jpg" alt="Camila Moretti">
-        </div>
-        <div class="gallery-item wide">
-            <img src="https://raw.githubusercontent.com/servicheck-ec/camilavittoria/main/images/foto9.jpg" alt="Camila Moretti">
-        </div>
-        <div class="gallery-item">
-            <img src="https://raw.githubusercontent.com/servicheck-ec/camilavittoria/main/images/foto10.jpg" alt="Camila Moretti">
-        </div>
-        <div class="gallery-item">
-            <img src="https://raw.githubusercontent.com/servicheck-ec/camilavittoria/main/images/foto7.jpg" alt="Camila Moretti">
-        </div>
+        <div class="gallery-item tall"><img src="https://res.cloudinary.com/dkeo0txlk/image/upload/f_auto,q_auto/v1782656799/WhatsApp_Image_2026-06-28_at_8.31.54_AM_crwkfk.jpg" alt="Camila Moretti"></div>
+        <div class="gallery-item"><img src="https://res.cloudinary.com/dkeo0txlk/image/upload/f_auto,q_auto/v1782656799/WhatsApp_Image_2026-06-28_at_8.30.14_AM_zj1knm.jpg" alt="Camila Moretti"></div>
+        <div class="gallery-item"><img src="https://res.cloudinary.com/dkeo0txlk/image/upload/f_auto,q_auto/v1782656799/WhatsApp_Image_2026-06-28_at_8.37.40_AM_zkbh4x.jpg" alt="Camila Moretti"></div>
+        <div class="gallery-item tall"><img src="https://res.cloudinary.com/dkeo0txlk/image/upload/f_auto,q_auto/v1782656798/Sin_t%C3%ADtulo.jpg4_c0ytwg.jpg" alt="Camila Moretti"></div>
+        <div class="gallery-item wide"><img src="https://res.cloudinary.com/dkeo0txlk/image/upload/f_auto,q_auto/v1782656799/WhatsApp_Image_2026-06-28_at_8.36.09_AM_e98qcy.jpg" alt="Camila Moretti"></div>
+        <div class="gallery-item"><img src="https://res.cloudinary.com/dkeo0txlk/image/upload/f_auto,q_auto/v1782656798/Sin_t%C3%ADtulo2_khvh8t.jpg" alt="Camila Moretti"></div>
+        <div class="gallery-item"><img src="https://res.cloudinary.com/dkeo0txlk/image/upload/f_auto,q_auto/v1782656799/WhatsApp_Image_2026-06-28_at_8.41.31_AM_ii65zp.jpg" alt="Camila Moretti"></div>
     </div>
 </section>
 
-<!-- CONTACT -->
 <section class="contact" id="contact">
     <p class="contact-label">Get in touch</p>
     <h2>Let's Connect</h2>
     <p>For exclusive content, collaborations, and private access.</p>
     <div class="contact-buttons">
-        <a href="https://wa.me/5554999401812?text=Oi%20Camila%2C%20vim%20pelo%20seu%20site%20e%20gostaria%20de%20saber%20mais%20sobre%20seu%20conte%C3%BAdo%20exclusivo" class="btn-wa" target="_blank">
-            💬 WhatsApp
-        </a>
-        <a href="mailto:cferst22@gmail.com" class="btn-email">
-            ✉ Email
-        </a>
+        <a href="https://wa.me/5554999401812?text=Oi%20Camila%2C%20vim%20pelo%20seu%20site!" class="btn-wa" target="_blank">💬 WhatsApp</a>
+        <a href="mailto:cferst22@gmail.com" class="btn-email">✉ Email</a>
     </div>
 </section>
 
-<!-- FOOTER -->
 <footer>
     <span>© 2026 Camila Moretti. All rights reserved.</span>
     <span>Premium Content Creator</span>
 </footer>
 
 <script>
-    // Smooth scroll
     document.querySelectorAll('a[href^="#"]').forEach(a => {
         a.addEventListener('click', e => {
             e.preventDefault();
             document.querySelector(a.getAttribute('href'))?.scrollIntoView({ behavior: 'smooth' });
         });
     });
-
-    // Intersection Observer para animaciones
-    const observer = new IntersectionObserver((entries) => {
-        entries.forEach(entry => {
-            if (entry.isIntersecting) {
-                entry.target.style.opacity = '1';
-                entry.target.style.transform = 'translateY(0)';
-            }
-        });
-    }, { threshold: 0.1 });
-
-    document.querySelectorAll('.gallery-item, .about-img-main, .about-img-side').forEach(el => {
-        el.style.opacity = '0';
-        el.style.transform = 'translateY(20px)';
-        el.style.transition = 'opacity 0.6s ease, transform 0.6s ease';
-        observer.observe(el);
-    });
 </script>
-
 </body>
 </html>
